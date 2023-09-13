@@ -17,4 +17,3 @@ class Signup(models.Model):
         return self.first_name
 
     objects = models.Manager()
-

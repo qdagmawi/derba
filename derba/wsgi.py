@@ -1,5 +1,5 @@
 """
-WSGI config for derba project.
+WSGI config for car_rent project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
