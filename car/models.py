@@ -9,6 +9,7 @@ class Signup(models.Model):
     email = models.EmailField()
     password = models.CharField(max_length=100)
     password_confirm = models.CharField(max_length=100)
+    phone_number = models.IntegerField()
 
     def __str__(self):
         return self.first_name
@@ -17,3 +18,4 @@ class Signup(models.Model):
         return self.first_name
 
     objects = models.Manager()
+
