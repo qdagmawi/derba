@@ -1,2 +1,0 @@
-def objects():
-    return None
