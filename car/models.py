@@ -19,6 +19,7 @@ class Signup(models.Model):
 
     objects = models.Manager()
 
-
+class Post(models.Model): 
+    pass
 
 
