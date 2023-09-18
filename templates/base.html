@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derba</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after{
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.car-cards{
+    background:#EEF2FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    box-sizing: border-box;
+
+}
+.logo{
+    cursor: pointer;
+}
+.card h1{
+    text-align: center;
+}
+.card{
+    /* filter: drop-shadow(10px, 10px); */
+    box-shadow: 4px 0px 10px #e6e6e6;
+    width: 350px;
+    border-radius: 20px;
+    display: flex;
+    background: #ffffff;
+    flex-direction: column;
+    justify-content: center;
+    margin: 40px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+.card:hover{
+    /* filter: drop-shadow(10px, 10px); */
+    box-shadow: 4px 0px 10px #b1c3ff;
+    width: 350px;
+    border-radius: 20px;
+    display: flex;
+    background: #ffffff;
+    flex-direction: column;
+    justify-content: center;
+    margin: 40px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.card h1{
+    font-size: 25px;
+    text-align: left;
+    color: #0326b4;
+}
+.card img{
+    width: 100%;
+    margin: auto;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+hr{
+    color: #d8e1ff;
+}
+
+.car-details{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px ;
+   /* margin-right: 30px; */
+    border-radius: 10px;
+
+}
+.detail-item{
+    font-size: 20px;
+    font-weight: 700;
+}
+.detail-title{
+    font-weight: 400;
+    font-size: 10px;
+}
+
+.second-detail{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 ;
+}
+
+.second-detail a{
+    background: #0735ed;
+    padding: 8px 70px;
+    border-radius: 6px;
+    color: #EEF2FF;
+    font-weight: 400;
+    width: 300px;
+    margin-right: 0px;
+
+}
+.car-price{
+    font-weight: 400;
+    font-size: 10px;
+}
+.price{
+    font-size: 20px;
+    font-weight: 700;
+    color: #0735ed;
+}
+
+.second-detail a:hover{
+    background: #1048ff;
+    padding: 8px 70px;
+    border-radius: 6px;
+    color: #f1f4ff;
+    cursor: pointer;
+    font-weight: 500;
+    width: 300px;
+
+}
+
+
+header .signup-btn{
+    background: #0735ed;
+    padding: 10px 20px;
+    border-radius: 6px;
+
+    font-weight: 400;
+    width: 300px;
+
+}
+
+header{
+    height: 70px;
+    background: #EEF2FF;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+ul{
+    display: flex;
+    list-style-type: none;
+
+}
+ul li a{
+    padding: 0 20px;
+
+
+
+}
+main{
+    display: flex;
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+
+
+}
+.hero-right{
+
+    margin: 10px;
+    padding: 0px 30px;
+    max-width: 370px;
+    height: auto;
+}
+
+.hero-left{
+
+    margin: 25px;
+}
+
+
+.hero-img{
+
+    width: 110%;
+
+}
+main h1{
+    font-size: 30px;
+    text-align: left;
+
+    font-weight: medium;
+    color: #000000;
+}
+main div span{
+    display: flex;
+    padding:10px 0;
+    font-size: 20px;
+
+
+
+}
+main span div{
+    font-weight: 800;
+    color: #000000;
+     color: #0735ed;
+}
+
+
+
+/* div{
+    display: flex;
+flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+.form_box .auth-btn, .signup-btn, .resetpd-btn, .login-btn{
+    background: #0735ed;
+    color: #fff;
+    font-weight: 700;
+    width: 300px;
+
+}
+
+a{
+    text-decoration: none;
+}
+.box-links, a[href="/login.html"] {
+    margin-top: 15px;
+    text-decoration: none;
+    font-weight: 400;
+    color:#202020;
+    margin: 7px;
+}
+
+a:hover{
+    color:#ff811b;
+    font-weight: 600;
+
+}
+a:hover[href="/login.html"]{
+    color:#3f3f3f;
+    font-weight: 600;
+
+}
+.user-profile {
+            display: flex;
+            align-items: center;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+       <div class="logo">
+            <img src="{% static 'car/placeholder_logo.svg'%}" alt="logo" width="100px">
+
+        </div>
+        <ul>
+            <li><a href="{% url 'car:login'%}">Sign in</a></li>
+            <li><a href="{% url 'car:signup'%}" class="signup-btn">Create account</a></li>
+
+        </ul>
+    </header>
+    <main>
+        <div class="hero-left">
+            <h1>The Largest Car Rental <br> Platform in Ethiopia</h1>
+            <span>Starting from <div>&nbsp800birr/day</div></span>
+        </div>
+        <div class="hero-right">
+            <img src="{% static 'car/hero_image.png'%}" alt="hero_car" class="hero-img">
+        </div>
+    </main>
+    <div class="car-cards">
+        <div class="card">
+            <img src="{% static 'car/car_image.png'%}" alt="car image">
+            <h1>Toyota Corolla</h1>
+            <div class="car-details">
+                <div class="eng-type, detail-item">
+                    <p  class="detail-title">Engine type</p>
+                    <p>Benzene</p>
+                </div>
+                <div class="build-year , detail-item">
+                    <p class="detail-title">Build year</p>
+                    <p>2005</p>
+                </div>
+                <div class="city , detail-item">
+                    <p class="detail-title">City</p>
+                    <p>A.A</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="second-detail">
+                <div class="car-price">
+                    <p  class="price">1400 Birr</p>
+                    <p>per day</p>
+                </div>
+                <div>
+                    <a>Rent now</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="{% static 'car/car_image2.png'%}" alt="car image">
+            <h1>Suzuki Swift</h1>
+            <div class="car-details">
+                <div class="eng-type, detail-item">
+                    <p  class="detail-title">Engine type</p>
+                    <p>Benzene</p>
+                </div>
+                <div class="build-year , detail-item">
+                    <p class="detail-title">Build year</p>
+                    <p>2015</p>
+                </div>
+                <div class="city , detail-item">
+                    <p class="detail-title">City</p>
+                    <p>A.A</p>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="second-detail">
+                <div class="car-price">
+                    <p  class="price">1700 Birr</p>
+                    <p>per day</p>
+                </div>
+                <div>
+                    <a>Rent now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
