@@ -1,13 +1,11 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse
-from .models import Signup
+
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from .models import Signup
+from .models import Signup, Post
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 
@@ -63,4 +61,19 @@ def user_logout(request):
 
 
 def post_car(request):
-    return render(request, 'car/post.html')
+    if request.POST:
+        model = request.POST['model']
+        price = request.POST['price']
+        car_make = request.POST['car_make']
+        body_type = request.POST['body_type']
+        transmission = request.POST['transmission']
+        year = request.POST['year']
+        color = request.POST['color']
+        description = request.POST['description']
+
+        user = Post.objects.create(model=model, price=price, car_make=car_make, body_type=body_type, transmission=transmission, year=year, color=color, description=description)
+        user.save()
+
+        return redirect(reverse('car:index'))
+    else:
+        return render(request, 'car/post.html')
