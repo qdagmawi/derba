@@ -29,9 +29,12 @@ class Post(models.Model):
     year = models.IntegerField()
     color = models.CharField(max_length=100)
     description = models.CharField(max_length=1000)
+    image = models.ImageField(upload_to='images/', default='path/to/default/image.jpg')
 
     def __str__(self):
         return self.model
 
     objects = models.Manager()
+
+
 
