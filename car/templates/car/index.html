@@ -248,6 +248,29 @@ a:hover[href="/login.html"]{
     font-weight: 600;
 
 }
+.profile_header {
+    position: relative;
+}
+.profile_header .dropdown {
+    width: 150px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    padding: 0;
+    list-style: none;
+    white-space: nowrap;
+}
+
+.profile_header .dropdown li {
+    padding: 0.5em;
+}
+
+.profile_header .profile-link:hover + .dropdown,.profile_header .dropdown:hover{
+
+    display: block;
+}
 
     </style>
 
