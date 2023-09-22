@@ -9,6 +9,7 @@ from .models import Signup, Post
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+import random
 
 
 def signup(request):
@@ -53,7 +54,19 @@ def forgot(request):
 
 
 def index(request):
-    return render(request, 'car/index.html')
+    all_cars = Post.objects.all()
+    car_list = []
+    for car in all_cars:
+        car_list.append(car)
+    random_car = random.choice(car_list)
+    random_car2 = random.choice(car_list)
+    context = {
+        'random_car': random_car,
+        'random_car2': random_car2,
+    }
+
+
+    return render(request, 'car/index.html', context=context)
 
 
 def user_logout(request):
