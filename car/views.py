@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from .models import Signup, Post
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 
@@ -70,9 +71,13 @@ def post_car(request):
         year = request.POST['year']
         color = request.POST['color']
         description = request.POST['description']
+        image_file = request.FILES['image']
 
-        user = Post.objects.create(model=model, price=price, car_make=car_make, body_type=body_type, transmission=transmission, year=year, color=color, description=description)
-        user.save()
+        user = request.user
+
+        new_post = Post(user=user, model=model, price=price, car_make=car_make, body_type=body_type,
+                        transmission=transmission, year=year, color=color, description=description, image=image_file)
+        new_post.save()
 
         return redirect(reverse('car:index'))
     else:
