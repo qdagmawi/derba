@@ -1,0 +1,253 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign up</title>
+        <link rel = "stylesheet" type="text/css" href="post.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="css/fontawesome/css/all.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;800&display=swap" rel="stylesheet">
+        <style>
+            *, *::before, *::after{
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.select-container{
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+
+
+}
+
+.details{
+    display: block;
+
+}
+
+
+.select-box{
+    box-sizing: border-box;
+    width: 300px;
+    height: 50px;
+    font-size: 1rem;
+    margin: 10px 0px;
+    font-weight: regular;
+    border-radius: 6px;
+    border:1px solid #A5B9FD;
+    padding: 6px 20px;
+}
+
+
+
+
+
+
+.container{
+    height: 100vh;
+    /* margin: ; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-sizing: border-box;
+    background: #ce8a8a;
+
+}
+
+
+
+
+.form_box{
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px;
+    height: auto;
+    max-width: 900px;
+    border-radius: 10px;
+    /**/
+    margin: 25px;
+    background-color: #EEF2FF ;
+
+    box-sizing: border-box;
+
+
+}
+
+.user-details{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.label{
+    display: block;
+}
+.input-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 30px;
+}
+input{
+    box-sizing: border-box;
+    width: 300px;
+    height: 50px;
+    font-size: 1rem;
+    margin: 10px 0px;
+    font-weight: regular;
+
+    border-radius: 6px;
+    border:1px solid #A5B9FD;
+    padding: 6px 20px;
+}
+
+.form_box h1{
+    font-size: 30px;
+    text-align: center;
+    margin: 15px;
+    font-weight: medium;
+    color: #0735ed;
+}
+.form_box select{
+    background: #fff;
+
+}
+
+
+
+
+
+textarea{
+    display: block;
+    box-sizing: border-box;
+    width: 700px;
+    height: 200px;
+    font-size: 1rem;
+    margin: 10px 0px;
+    font-weight: regular;
+    border-radius: 6px;
+    border:1px solid #A5B9FD;
+    padding: 6px 20px;
+}
+
+ .post-btn{
+    display: block;
+    margin: auto;
+    margin-top: ;
+    background: #0735ed;
+    color: #fff;
+    font-weight: 700;
+    width: 300px;
+
+}
+
+.box-links, a {
+    margin-top: 15px;
+    text-decoration: none;
+    font-weight: 400;
+    color:#202020;
+    margin: 10px;
+}
+ a:hover{
+    color:#0735ed;
+    font-weight: 600;
+
+}
+
+
+
+        </style>
+    </head>
+
+    <body>
+
+        <div class = "container">
+            <div class = "form_box">
+                <h1>Post your car</h1>
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Model</span>
+                        <input type="text" placeholder="Enter your name" required>
+
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Price per day</span>
+                        <input type="text" placeholder="1000" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Car Make</span>
+                        <input type="text" placeholder="Enter Car Make" required>
+
+                    </div>
+
+
+                    <div class="input-box select-container">
+                        <span class="details">Body Type</span>
+                    <select class="select-box">
+
+                    <option value="">Select an Option</option>
+                    <option value="first">Compact</option>
+                    <option value="second">Sedan</option>
+                    <option value="second">SUV</option>
+                    <option value="second">Minibus</option>
+                    <option value="second">Truck</option>
+                    <option value="second">Machinery</option>
+
+                    </select>
+
+                    </div>
+
+
+
+                    <div class="input-box select-container">
+                        <span class="details">Transmission</span>
+                    <select class="select-box">
+
+                    <option value="">Select an Option</option>
+                    <option value="first">Automatic</option>
+                    <option value="second">Manual</option>
+
+
+                    </select>
+
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Year</span>
+                        <input type="text" placeholder="2005" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">Color</span>
+                        <input type="text" placeholder="Black" required>
+                    </div>
+                    <div class="detail-area">
+                        <input type="file" name="image" />
+                        <span class="details">Description</span>
+                        <textarea name = "Description"></textarea>
+                        <input class="post-btn"type="button" value="Post">
+
+                    </div>
+
+
+                </div>
+                <!-- <div class="box-links">
+                    <p class="bottom_text"> Already have an account?  <a href="login.html" >Login here</a></p>
+                </div>
+                 -->
+
+
+        </div>
+
+
+    </body>
+</html>
