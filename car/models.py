@@ -1,6 +1,6 @@
 
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class Signup(models.Model):
 
@@ -21,6 +21,7 @@ class Signup(models.Model):
 
 
 class Post(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     model = models.CharField(max_length=100)
     price = models.IntegerField()
     car_make = models.CharField(max_length=100)
