@@ -7,7 +7,10 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from .models import Signup, Post
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+import random
+
 
 
 def signup(request):
@@ -52,7 +55,20 @@ def forgot(request):
 
 
 def index(request):
-    return render(request, 'car/index.html')
+    all_cars = Post.objects.all()
+    car_list = []
+    for car in all_cars:
+        car_list.append(car)
+    random_car = random.choice(car_list)
+    random_car2 = random.choice(car_list)
+    print(random_car.image)
+    context = {
+        'random_car': random_car,
+        'random_car2': random_car2,
+    }
+
+
+    return render(request, 'car/index.html', context=context)
 
 
 def user_logout(request):
@@ -70,9 +86,14 @@ def post_car(request):
         year = request.POST['year']
         color = request.POST['color']
         description = request.POST['description']
+        image_file = request.FILES['image']
+        phone_number = request.POST['phone_number']
 
-        user = Post.objects.create(model=model, price=price, car_make=car_make, body_type=body_type, transmission=transmission, year=year, color=color, description=description)
-        user.save()
+        user = request.user
+
+        new_post = Post(user=user, model=model, price=price, car_make=car_make, body_type=body_type,
+                        transmission=transmission, year=year, color=color, description=description, image=image_file, phone_number=phone_number)
+        new_post.save()
 
         return redirect(reverse('car:index'))
     else:
