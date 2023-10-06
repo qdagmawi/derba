@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 import random
 
-
+global context
 
 def signup(request):
     if request.POST:
@@ -54,11 +54,16 @@ def forgot(request):
     return render(request, 'car/forgot.html')
 
 
+all_cars = Post.objects.all()
+car_list = []
+for car in all_cars:
+    car_list.append(car)
+
+global random_car
+global random_car2
 def index(request):
-    all_cars = Post.objects.all()
-    car_list = []
-    for car in all_cars:
-        car_list.append(car)
+    global random_car
+    global random_car2
     random_car = random.choice(car_list)
     random_car2 = random.choice(car_list)
     print(random_car.image)
@@ -66,8 +71,6 @@ def index(request):
         'random_car': random_car,
         'random_car2': random_car2,
     }
-
-
     return render(request, 'car/index.html', context=context)
 
 
@@ -98,3 +101,18 @@ def post_car(request):
         return redirect(reverse('car:index'))
     else:
         return render(request, 'car/post.html')
+
+
+def detail(request):
+    global random_car
+    global random_car2
+    car = random_car or random_car2
+    if car == random_car:
+        car = random_car
+    else:
+        car = random_car2
+    context_detail = {
+        'car': car,
+    }
+
+    return render(request, 'car/detail.html', context=context_detail)
