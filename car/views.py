@@ -66,10 +66,24 @@ def index(request):
     global random_car2
     random_car = random.choice(car_list)
     random_car2 = random.choice(car_list)
-    print(random_car.image)
+    random_car3 = random.choice(car_list)
+    random_car4 = random.choice(car_list)
+    random_car5 = random.choice(car_list)
+    random_car6 = random.choice(car_list)
+    random_car7 = random.choice(car_list)
+    random_car8 = random.choice(car_list)
+
+
+    print(f"{random_car2.id} this is car id")
     context = {
         'random_car': random_car,
         'random_car2': random_car2,
+        'random_car3': random_car3,
+        'random_car4':  random_car4,
+        'random_car5':  random_car5,
+        'random_car6':  random_car6,
+        'random_car7':  random_car7,
+        'random_car8':  random_car8,
     }
     return render(request, 'car/index.html', context=context)
 
