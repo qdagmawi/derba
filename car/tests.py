@@ -49,3 +49,12 @@ class CarAppTestCase(TestCase):
     def test_user_logout(self):
         response = self.client.get(reverse('car:user_logout'))
         self.assertEqual(response.status_code, 302)
+
+    def test_invalid_login(self):
+        response = self.client.post(reverse('car:log'), {'email': 'nonexistent@example.com', 'password': 'wrongpassword'})
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Invalid credentials')
+
+    def test_valid_login(self):
+        response = self.client.post(reverse('car:log'), {'email': 'test@example.com', 'password': 'testpassword'})
+        self.assertEqual(response.status_code, 302)
