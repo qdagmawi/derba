@@ -58,3 +58,13 @@ class CarAppTestCase(TestCase):
     def test_valid_login(self):
         response = self.client.post(reverse('car:log'), {'email': 'test@example.com', 'password': 'testpassword'})
         self.assertEqual(response.status_code, 302)
+
+  
+    def test_signup_view(self):
+        response = self.client.get(reverse('car:signup'))
+        self.assertEqual(response.status_code, 200)
+
+
+    def test_login_view(self):
+        response = self.client.get(reverse('car:login'))
+        self.assertEqual(response.status_code, 200)
