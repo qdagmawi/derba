@@ -65,6 +65,18 @@ class CarAppTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
 
+    def test_index_view(self):
+        response = self.client.get(reverse('car:index'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_post_car_view(self):
+        # Log in the user first
+        self.client.login(email='test@example.com', password='testpassword')
+
+        response = self.client.get(reverse('car:post_car'))
+        self.assertEqual(response.status_code, 200)
+
+
     def test_login_view(self):
         response = self.client.get(reverse('car:login'))
         self.assertEqual(response.status_code, 200)
